@@ -3,19 +3,19 @@ import numpy as np
 a = np.array([4, 10, 12, 23, -2, -1, 0, 0, 0, -6, 3, -7])
 
 # 1. How many negative numbers are there?
-len(a[a < 0])
+(a[a < 0]).size
 
 
 # 2. How many positive numbers are there?
-len(a[a > 0])
+(a[a > 0]).size
 
 
 # 3. How many even positive numbers are there?
-len(a[(a % 2 == 0) & (a > 0)])
+(a[(a % 2 == 0) & (a > 0)]).size
 
 
 # 4. If you were to add 3 to each data point, how many positive numbers would there be?
-len(a[(a+3) > 0])
+(a[(a+3) > 0]).size
 
 
 # 5. If you squared each number, what would the new mean and standard deviation be?
@@ -60,13 +60,11 @@ mean_of_a = sum_of_a / len(a)
 
 
 # Exercise 5 - Make a variable named product_of_a to hold the product of multiplying all the numbers in the above list together
-product_of_a = 0
+product_of_a = 1
 for x in a:
-    if product_of_a == 0:
-        product_of_a += x
-    else:
-        product_of_a *= x
+    product_of_a *= x
 
+product_of_a
 
 # Exercise 6 - Make a variable named squares_of_a. It should hold each number in a squared like [1, 4, 9, 16, 25...]
 squares_of_a = [x ** 2 for x in a]
@@ -206,11 +204,12 @@ np.dot(c, c)
 
 
 # Exercise 7 - Write the code necessary to sum up the result of c times c transposed. Answer should be 261
-sum(c * np.tranpose(c))
+(c * np.transpose(c)).sum
+
 
 
 # Exercise 8 - Write the code necessary to determine the product of c times c transposed. Answer should be 131681894400.
-(c * np.transpose(c)).sum()
+(c * np.transpose(c)).prod()
 
 
 
@@ -249,7 +248,7 @@ np.unique(d)
 
 
 # Exercise 7 - Determine how many unique numbers there are in d.
-len(np.unique(d))
+(np.unique(d)).size
 
 
 # Exercise 8 - Print out the shape of d.
